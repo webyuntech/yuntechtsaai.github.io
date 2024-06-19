@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <style>
+    @font-face {
+  font-family: 'Cubic'; /* 字体名称，用于后续引用 */
+  src: url('font/Cubic_11_1.200_R.ttf') format('truetype'); /* 字体文件的路径和格式 */
+  font-weight: normal; /* 字体的粗细 */
+  font-style: normal; /* 字体的风格 */
+}
+    body {
+            background-image: url('img/background/animation02.png');
+            background-size: cover;
+            /* 使背景图片覆盖整个页面 */
+            background-repeat: no-repeat;
+            /* 防止背景图片重复 */
+            background-position: center center;
+            /* 背景图片居中 */
+            overflow-x: hidden; 
+        }
+
+
+        body,
+        html {
+            
+            margin: 0;
+            justify-content: center;
+            align-items: flex-end;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+        
+        
+        .container {
+      position: relative;
+      width: 100%;
+      
+    }
+    .navbar-custom-height {
+      height: 60px;
+      /* 你可以根据需要调整这个高度 */
+    }
+
+   
+    .container-custom {
+      margin-top: 50px; /* 50px margin from the top */
+      margin-bottom: 100px;
+    }
+
+    .carousel-item img {
+      max-width: calc(100% / 2); /* 2:1 aspect ratio */
+      display: block;
+      margin: 0 auto;
+      cursor: pointer; /* 鼠标指针样式为点击 */
+    }
+
+    .modal-content {
+      background-color: rgba(78, 78, 78, 0.44); /* Semi-transparent gray background */
+      border: none;
+      padding: 30px; /* 30px padding inside modal */
+      text-align: center; /* Center align content */
+    }
+
+    .modal-dialog {
+      max-width: calc(80%); /* 3:1 aspect ratio */
+    }
+
+    .modal-body {
+      padding: 0;
+    }
+
+    .ratio-16x9 iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* White text color for modal titles */
+    .modal-title {
+      color: #fff;
+    }
+
+    
+    /* 轉圈大師 */
+#efg {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0);
+    margin-top: 200px;
+}
+.image-container3 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* 圖片容器高度 */
+    margin-bottom: 300px;
+    margin-top: 0px;
+}
+
+#image-to-fade1 {
+    position: absolute;
+    top: 50%;
+    right: -400px; /* 初始位置在右侧屏幕外 */
+    transform: translateY(-50%);
+    transition: right 3s, transform 3s; 
+}
+
+.image-container3.visible #image-to-fade1 {
+    right: 1px; 
+    transform: translateY(-50%); /* 移除旋转transform */
+}
+
+
+
+/* 轉圈大師 */
+
+
+/* 淡入淡出大師 */
+
+#kkk {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(51, 0, 255, 0);
+    margin-top:0px;
+}
+.font_formine_box {
+  position: absolute; /* Change position to absolute */
+  top: 600px; /* Adjust as needed */
+  left: 10%; /* Position it on the right side of the container */
+
+  width: 90vh;
+  height: 50vh;
+  opacity: 0; /* 初始时隐藏 */
+  transition: opacity 0.6s ease; /* 添加渐变效果 */
+}
+
+.font_formine_box.visible {
+        opacity: 1; /* 当类被添加时显示 */
+    }
+
+.font_formine{
+  position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: left;
+      z-index: 1;
+      width: 100%;
+      font-family: 'Cubic',Arial, sans-serif;
+      
+}
+/* 淡入淡出大師 */
+
+/* 淡入淡出大師00000000000000000000 */
+#aaa {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0);
+    margin-top: 500px;
+}
+.image-container4 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* 圖片容器高度 */
+    margin-bottom: 300px;
+    margin-top: 50px;
+}
+
+#image-to-fade2 {
+    position: absolute;
+    top: 50%;
+    right: -400px; /* 初始位置在右侧屏幕外 */
+    transform: translateY(-50%);
+    transition: right 3s, transform 3s; 
+}
+
+.image-container4.visible #image-to-fade2 {
+    right: 1px; 
+    transform: translateY(-50%); /* 移除旋转transform */
+}
+
+.font_formine_box01 {
+  position: absolute; /* Change position to absolute */
+  top: 1200px; /* Adjust as needed */
+  left: 10%; /* Position it on the right side of the container */
+
+  width: 90vh;
+  height: 50vh;
+  opacity: 0; /* 初始时隐藏 */
+  transition: opacity 0.6s ease; /* 添加渐变效果 */
+}
+
+.font_formine_box01.visible {
+        opacity: 1; /* 当类被添加时显示 */
+    }
+/* 淡入淡出大師000000000000 */
+
+
+
+/* 淡入淡出大師22222222222222222222222222 */
+#bbb {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0);
+    margin-top: 600px;
+}
+.image-container5 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* 圖片容器高度 */
+    margin-bottom: 300px;
+    margin-top: 50px;
+}
+
+#image-to-fade3 {
+    position: absolute;
+    top: 50%;
+    right: -400px; /* 初始位置在右侧屏幕外 */
+    transform: translateY(-50%);
+    transition: right 3s, transform 3s; 
+}
+
+.image-container5.visible #image-to-fade3 {
+    right: 1px; 
+    transform: translateY(-50%); /* 移除旋转transform */
+}
+
+.font_formine_box02 {
+  position: absolute; /* Change position to absolute */
+  top: 1800px; /*這個要調!!!!!!!!!!!!!!!尖叫!!!!!*/
+  left: 10%; /* Position it on the right side of the container */
+
+  width: 90vh;
+  height: 50vh;
+  opacity: 0; /* 初始时隐藏 */
+  transition: opacity 0.6s ease; /* 添加渐变效果 */
+}
+
+.font_formine_box02.visible {
+        opacity: 1; /* 当类被添加时显示 */
+    }
+/* 淡入淡出大師22222222222222222 */
+
+
+/* 淡入淡出大師33333333333333333 */
+#ccc {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0);
+    margin-top: 600px;
+}
+.image-container6 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* 圖片容器高度 */
+    margin-bottom: 300px;
+    margin-top: 50px;
+}
+
+#image-to-fade4 {
+    position: absolute;
+    top: 50%;
+    right: -400px; /* 初始位置在右侧屏幕外 */
+    transform: translateY(-50%);
+    transition: right 3s, transform 3s; 
+}
+
+.image-container6.visible #image-to-fade4 {
+    right: 1px; 
+    transform: translateY(-50%); /* 移除旋转transform */
+}
+
+.font_formine_box03 {
+  position: absolute; /* Change position to absolute */
+  top: 2400px; /*這個要調!!!!!!!!!!!!!!!尖叫!!!!!*/
+  left: 10%; /* Position it on the right side of the container */
+
+  width: 90vh;
+  height: 50vh;
+  opacity: 0; /* 初始时隐藏 */
+  transition: opacity 0.6s ease; /* 添加渐变效果 */
+}
+
+.font_formine_box03.visible {
+        opacity: 1; /* 当类被添加时显示 */
+    }
+/* 淡入淡出大師2233333333333333333 */
+
+
+/* 淡入淡出大師44444444444444444 */
+#ddd {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0);
+    margin-top: 600px;
+}
+.image-container7 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* 圖片容器高度 */
+    margin-bottom: 300px;
+    margin-top: 50px;
+}
+
+#image-to-fade5 {
+    position: absolute;
+    top: 50%;
+    right: -400px; /* 初始位置在右侧屏幕外 */
+    transform: translateY(-50%);
+    transition: right 3s, transform 3s; 
+}
+
+.image-container7.visible #image-to-fade5 {
+    right: 1px; 
+    transform: translateY(-50%); /* 移除旋转transform */
+}
+
+.font_formine_box04 {
+  position: absolute; /* Change position to absolute */
+  top: 3000px; /*這個要調!!!!!!!!!!!!!!!尖叫!!!!!*/
+  left: 10%; /* Position it on the right side of the container */
+
+  width: 90vh;
+  height: 50vh;
+  opacity: 0; /* 初始时隐藏 */
+  transition: opacity 0.6s ease; /* 添加渐变效果 */
+}
+
+.font_formine_box04.visible {
+        opacity: 1; /* 当类被添加时显示 */
+    }
+/* 淡入淡出大師44444444444444444 */
+
+
+/* top-btn */
+.btn01 {
+            position: fixed;
+    width: 100px;
+    height: 100px;
+    bottom: 20px; /* 調整為適當的位置 */
+    right: 20px; /* 調整為適當的位置 */
+    z-index: 1000; /* 確保在最上層 */
+        }
+
+        
+
+        /* top-btn */
+        /* 腳  */
+        footer {
+            background-color: transparent;
+            padding: 0;
+            text-align: center;
+            margin-top: 0px; /* Add margin to the top */
+        }
+
+        /* 設定圖片全寬度 */
+        .footer-img {
+            width: 100%;
+            height: auto;
+            /* 保持圖片比例 */
+        }
+
+        /* 腳  */
+  </style>
+</head>
+
+<body>
+
+  
+ <!-- nvbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom-height">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">TECHNOBLADE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="charter.html">場景</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="paint.html">生態域</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="video.html">遊玩</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index2.html">祭祀</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+<!-- nvbar -->
+
+<div class="container" id="abc">
+  <div class=" container-custom">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-toggle="modal" data-bs-target="#modalVideo1">
+          <img src="img/aniamtion/gif/1_mining.gif" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="font-family: 'Cubic',Arial, sans-serif;">挖礦</h5>
+            <p  style="font-family: 'Cubic',Arial, sans-serif;">當你沒有床時，大多數玩家將會在收集完食物後躲在地底——展開一場地下冒險。</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalVideo2">
+          <img src="img/aniamtion/gif/2_trade.gif" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5  style="font-family: 'Cubic',Arial, sans-serif;">交易/以物易物</h5>
+            <p  style="font-family: 'Cubic',Arial, sans-serif;">在Minecraft中，你可以與人形生物進行物資交換。</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalVideo3">
+          <img src="img/aniamtion/gif/3_farming.gif" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5  style="font-family: 'Cubic',Arial, sans-serif;">農家樂(種植/畜牧)</h5>
+            <p  style="font-family: 'Cubic',Arial, sans-serif;">你可以種植植物。Minecraft裡有著豐富的生態域以及其中各種不同的作物等你蒐集。</p>
+          </div>
+        </div>
+        
+        <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalVideo4">
+          <img src="img/aniamtion/gif/4_fighting.gif" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5  style="font-family: 'Cubic',Arial, sans-serif;">打怪升級</h5>
+            <p  style="font-family: 'Cubic',Arial, sans-serif;">當時間來到夜晚，你會發現周遭將生成攻擊你的敵對生物。</p>
+          </div>
+        </div>
+
+        <div class="carousel-item" data-bs-toggle="modal" data-bs-target="#modalVideo5">
+          <img src="img/aniamtion/gif/5_building.gif" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5  style="font-family: 'Cubic',Arial, sans-serif;">蓋一棟屬於你自己的家！l</h5>
+            <p  style="font-family: 'Cubic',Arial, sans-serif;">最後，最重要的當然是craft的部分——將屬於你的創意創造出來！</p>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal 1 -->
+  <div class="modal fade" id="modalVideo1" tabindex="-1" aria-labelledby="modalVideo1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalVideo1Label"  style="font-family: 'Cubic',Arial, sans-serif;">挖礦</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/EQISygAle3M?si=QmODa2xH835yyUIa" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="modalVideo2" tabindex="-1" aria-labelledby="modalVideo2Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalVideo2Label"  style="font-family: 'Cubic',Arial, sans-serif;">交易/以物易物</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/4YvOkJ4mW3A?si=miwx_Oeulv7Y0Tmg" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="modal fade" id="modalVideo3" tabindex="-1" aria-labelledby="modalVideo3Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalVideo3Label"  style="font-family: 'Cubic',Arial, sans-serif;">農家樂(種植/畜牧)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/AklNJNtvhqE?si=BMMbih3BkkBenXjc" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="modal fade" id="modalVideo4" tabindex="-1" aria-labelledby="modalVideo3Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalVideo3Label"  style="font-family: 'Cubic',Arial, sans-serif;">打怪升級</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/chluqFD6Ark?si=rnNm25p0nMdGekPl" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="modal fade" id="modalVideo5" tabindex="-1" aria-labelledby="modalVideo3Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalVideo3Label"  style="font-family: 'Cubic',Arial, sans-serif;">蓋一棟屬於你自己的家！</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/Q36THRWXRDY?si=EK_B-yNZ-s-OcQUJ" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- 轉圈大師 -->
+  <div id="efg"></div>
+  <div id="kkk"></div>
+  <div class="font_formine_box" >
+    <div class="fade-in-out font_formine">
+      <h1>挖礦：    </h1>
+      <p>當你沒有床時，大多數玩家將會在收集完食物後躲在地底——展開一場地下冒險。</p>
+      <p>Minecraft的探險可不僅止於地表，如地底將有隨機的各種類礦物等你裁決，你可以使用熔爐將他們煉製成礦物，用來製作各種工具或保護自己的盔甲。</p>
+      <p>背包慢慢被填滿及挖掘石頭的音效會令療癒的效果更加倍。在暗無天日的環境下你更會忘記使玩家睡眠與時間，等到發現時就不知不覺在礦洞裡待了好幾個小時。</p>
+      <p>隨著版本的更新，現在的地底除了挖礦還包含更多有趣的天然洞穴與環境，試著找看看廢棄礦坑或終界房吧！</p>
+  </div>
+  </div>
+  <div class="image-container3">
+      <img id="image-to-fade1" src="img/aniamtion/crop/1_crop.png" alt="Image" width="500">
+  </div>
+  <!-- 轉圈大師 -->
+
+   <!-- 轉圈大師a -->
+   <div id="aaa"></div>
+   
+   <div class="font_formine_box01" >
+     <div class="fade-in-out font_formine">
+       <h1>交易/以物易物：   </h1>
+       <p>在Minecraft中，你可以與人形生物進行物資交換。</p>
+       <p>較為文明的村莊有自己的一套貨幣系統，你可以用綠寶石或物品與相應職業的村民進行交易；</p>
+       <p>而豬布林們只喜歡金子，隨心所欲的給予物品。      </p>
+       
+   </div>
+   </div>
+   <div class="image-container4">
+       <img id="image-to-fade2" src="img/aniamtion/crop/2_crop.png" alt="Image" width="500">
+   </div>
+   <!-- 轉圈大師a -->
+
+   <!-- 轉圈大師b -->
+   <div id="bbb"></div>
+   
+   <div class="font_formine_box02" >
+     <div class="fade-in-out font_formine">
+       <h1>農家樂(種植/畜牧)：
+      </h1>
+       <p>基於Minecraft中的飽食度設定，你需要吃東西果腹。
+      </p>
+       <p>你可以種植植物。Minecraft裡有著豐富的生態域以及其中各種不同的作物等你蒐集。</p>
+       <p>需要用正確的方式將他們摘下並種植，當作物長成後摘下，你可以選擇用來與村民農夫交易物品</p>
+       <p>或透過工作台中的食譜將其製成食品(如：蛋糕，餅乾，麵包或各種湯品等)      </p>
+       <p>你也可以選擇圈養動物們，用農產品餵養並繁殖更多的肉畜。待牠們長大，你可以殺死動物以得到肉品，並用熔爐或營火燒製成(當然你也可以吃野味，將比較沒有飽足感)。
+      </p>
+   </div>
+   </div>
+   <div class="image-container5">
+       <img id="image-to-fade3" src="img/aniamtion/crop/3_crop.png" alt="Image" width="500">
+   </div>
+   <!-- 轉圈大師 -->
+
+
+   <!-- 轉圈大師c -->
+   <div id="ccc"></div>
+   
+   <div class="font_formine_box03" >
+     <div class="fade-in-out font_formine">
+       <h1>打怪升級：
+      </h1>
+       <p>當時間來到夜晚，你會發現周遭將生成攻擊你的敵對生物。你可以選擇殺死他們以得到經驗值及掉落物；如只想要跟友好生物貼貼，也可以選擇多插火把提高周圍亮度或開啟和平模式。</p>
+       <p>遊戲的結局是打敗終界龍。但隨著時間的更新，已經有更多比終界龍更長遠的目標等你完成。</p>
+       
+       
+   </div>
+   </div>
+   <div class="image-container6">
+       <img id="image-to-fade4" src="img/aniamtion/crop/4_crop.png" alt="Image" width="500">
+   </div>
+   <!-- 轉圈大師 -->
+
+   <!-- 轉圈大師d -->
+   <div id="ddd"></div>
+   
+   <div class="font_formine_box04" >
+     <div class="fade-in-out font_formine">
+       <h1>蓋一棟屬於你自己的家！：      </h1>
+       <p>最後，最重要的當然是craft的部分——將屬於你的創意創造出來！你可以體驗從零開始伐木或鑿石蒐集材料，於曠野中蓋好一間成就感滿滿的家</p>
+       <p>如果想要當個進階建築師，也可以體驗在創造模式完成各種樣式精美的屋子。
+      </p>
+      
+       
+   </div>
+   </div>
+   <div class="image-container7">
+       <img id="image-to-fade5" src="img/aniamtion/crop/5_crop.png" alt="Image" width="500">
+   </div>
+   <!-- 轉圈大師 -->
+
+</div>
+
+<!-- 回到最上面 -->
+<a href="#abc">
+        
+  <img src="img/top_small.png" class="btn01 " >
+
+</a>
+
+
+
+<!-- 腳 -->
+<footer>
+<!-- 加入圖片 -->
+<img src="img/background/animation03.png" alt="Footer Image" class="footer-img">
+</footer>
+<!-- 腳 -->
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          $(window).on('scroll', function () {
+              var efgOffset = $('#efg').offset().top;
+              var scrollPosition = $(window).scrollTop() + $(window).height();
+
+              if (scrollPosition > efgOffset) {
+                  $('.image-container3').addClass('visible');
+                  
+              }
+          });
+      });
+  </script>
+  <script>
+    $(document).ready(function () {
+        $(window).on('scroll', function () {
+            var kkkOffset = $('#kkk').offset().top;
+            var scrollPosition = $(window).scrollTop() + $(window).height();
+
+            if (scrollPosition > kkkOffset) {
+                $('.font_formine_box').addClass('visible');
+                
+            }
+        });
+    });
+</script>
+
+<script>
+  $(document).ready(function () {
+      $(window).on('scroll', function () {
+          var aaaOffset = $('#aaa').offset().top;
+          var scrollPosition = $(window).scrollTop() + $(window).height();
+
+          if (scrollPosition > aaaOffset) {
+              $('.font_formine_box01').addClass('visible');
+              $('.image-container4').addClass('visible');
+              
+          }
+      });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+      $(window).on('scroll', function () {
+          var bbbOffset = $('#bbb').offset().top;
+          var scrollPosition = $(window).scrollTop() + $(window).height();
+
+          if (scrollPosition > bbbOffset) {
+              $('.font_formine_box02').addClass('visible');
+              $('.image-container5').addClass('visible');
+              
+          }
+      });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+      $(window).on('scroll', function () {
+          var cccOffset = $('#ccc').offset().top;
+          var scrollPosition = $(window).scrollTop() + $(window).height();
+
+          if (scrollPosition > cccOffset) {
+              $('.font_formine_box03').addClass('visible');
+              $('.image-container6').addClass('visible');
+              
+          }
+      });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+      $(window).on('scroll', function () {
+          var dddOffset = $('#ddd').offset().top;
+          var scrollPosition = $(window).scrollTop() + $(window).height();
+
+          if (scrollPosition > dddOffset) {
+              $('.font_formine_box04').addClass('visible');
+              $('.image-container7').addClass('visible');
+              
+          }
+      });
+  });
+</script>
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous">
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var modals = document.querySelectorAll('.modal');
+      modals.forEach(function (modal) {
+        modal.addEventListener('hidden.bs.modal', function () {
+          var iframe = modal.querySelector('iframe');
+          var videoSrc = iframe.src;
+          iframe.src = videoSrc; // Assigning the iframe src again to stop the video
+        })
+      });
+    });
+  </script>
+</body>
+
+</html>

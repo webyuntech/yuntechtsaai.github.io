@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @font-face {
+  font-family: 'Cubic'; /* 字体名称，用于后续引用 */
+  src: url('font/Cubic_11_1.200_R.ttf') format('truetype'); /* 字体文件的路径和格式 */
+  font-weight: normal; /* 字体的粗细 */
+  font-style: normal; /* 字体的风格 */
+}
+
+    .navbar-custom-height {
+      height: 60px;
+      /* 你可以根据需要调整这个高度 */
+    }
+
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      /* 禁止左右滚动 */
+      justify-content: center;
+      align-items: flex-end;
+      /* 將按鈕對齊底部 */
+      min-height: 100vh;
+      /* 讓 body 至少與視窗高度一樣，允許捲動 */
+      scroll-behavior: smooth;
+      /* 平滑滾動 */
+     
+    }
+
+    body{
+       background-image: url('img/background/topic_02.png');
+      background-size: cover; /* 使背景图片覆盖整个页面 */
+      background-repeat: no-repeat; /* 防止背景图片重复 */
+      background-position: center center; /* 背景图片居中 */
+    }
+
+    /* Custom container class without padding */
+    .container-no-padding {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0;
+      margin-right: auto;
+      margin-left: auto;
+      overflow: hidden;
+      /* 防止内容超出视口宽度 */
+    }
+
+
+    /* video */
+    .video-container {
+      position: relative;
+      width: 100vw;
+      overflow: hidden;
+      /* 防止内容超出视口宽度 */
+    }
+
+    .video-bg {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      z-index: 1;
+      width: 100%;
+      font-family: 'Cubic',Arial, sans-serif;
+      
+    }
+
+    .content h1{
+      margin: 0;
+      font-family: 'Cubic',Arial, sans-serif;
+    }
+    .content p {
+      margin-top: 20px;
+      font-family: 'Cubic',Arial, sans-serif;
+    }
+
+  /* video */
+
+/* self */
+    .img-container {
+      text-align: center;
+      margin: 200px 0;
+    }
+
+    .img-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+
+
+    .text-container {
+      font-size: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100%;
+      padding-left: 16px;
+      color: white;
+      /* 調整左邊的間距 */
+      margin-top: 40px;
+      text-align: left;
+      font-family: 'Cubic',Arial, sans-serif;
+
+    }
+
+    .text-content {
+      font-size: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100%;
+      padding-left: 16px;
+      /* 調整左邊的間距 */
+      margin-top: 20px;
+      text-align: left;
+      font-family: 'Cubic',Arial, sans-serif;
+    }
+
+    .text-container2 {
+      font-size: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
+      /* 文字向右對齊 */
+      height: 100%;
+      padding-right: 16px;
+      color: white;
+      /* 調整右邊的間距 */
+      margin-top: 40px;
+      text-align: right;
+      font-family: 'Cubic',Arial, sans-serif;
+    }
+
+    .text-content2 {
+      font-size: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
+      /* 文字向右對齊 */
+      height: 100%;
+      padding-right: 16px;
+      /* 調整右邊的間距 */
+      margin-top: 20px;
+      text-align: right;
+      font-family: 'Cubic',Arial, sans-serif;
+    }
+    .self2{
+          width: 350px;
+          height: 350px;
+        }
+/* self */
+
+    /* 六角榮源 */
+    .main-image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* 將左右邊距設置為自動，實現水平居中 */
+  margin-top: 300px;
+  margin-bottom: 300px;
+}
+
+    .main-image img {
+      width: 100%;
+      height: 100%;
+     
+    }
+
+    .hover-images {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      /* 添加 transform 屬性的過渡效果 */
+    }
+
+    .hover-images.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.3);
+      /* 將 transform 屬性修改為 scale(2)，放大為原來的兩倍 */
+    }
+
+    .hover-image {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hover-image img {
+      width: 100%;
+      height: auto;
+     
+    }
+
+    .hover-image p {
+  margin: 0;
+  padding: 5px; /* 添加内边距，确保文字与边框有一定距离 */
+  font-size: 14px; /* 调整字体大小 */
+  font-family: 'Cubic', Arial, sans-serif;
+  max-width: 100px;
+  line-height: 1.2; /* 调整行高 */
+  text-align: center; /* 文字居中对齐 */
+}
+
+    .hover-image:nth-child(1) {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      flex-direction: column-reverse;
+    }
+
+    .hover-image:nth-child(2) {
+      top: 25%;
+      left: 87%;
+      transform: translate(-50%, -50%);
+      flex-direction: row;
+    }
+
+    .hover-image:nth-child(3) {
+      top: 75%;
+      left: 87%;
+      transform: translate(-50%, -50%);
+      flex-direction: row;
+    }
+
+    .hover-image:nth-child(4) {
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      flex-direction: column;
+    }
+
+    .hover-image:nth-child(5) {
+      top: 75%;
+      left: 13%;
+      transform: translate(-50%, -50%);
+      flex-direction: row-reverse;
+    }
+
+    .hover-image:nth-child(6) {
+      top: 25%;
+      left: 13%;
+      transform: translate(-50%, -50%);
+      flex-direction: row-reverse;
+    }
+
+    .hover-images.show {
+      opacity: 1;
+    }
+
+    /* six-dinosour */
+
+    /* top-btn */
+        .btn {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 80%; /* 根据需要调整按钮位置 */
+            
+            right: 20px;
+        }
+        
+/* top-btn */
+        /* 腳  */
+        footer {
+      background-color: transparent;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* 設定圖片全寬度 */
+    .footer-img {
+      width: 100%;
+      height: auto; /* 保持圖片比例 */
+    }
+    /* 腳  */
+
+    .col-md-4 {
+ padding-right:-100px ;/* 調整外邊距值 */
+
+}
+
+.col-md-8 {
+ padding-right:100px ;/* 調整外邊距值 */
+
+}
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container-no-padding" id="abc">
+
+
+
+    <!-- nvbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom-height">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">TECHNOBLADE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="charter.html">場景</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="paint.html">生態域</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="video.html">遊玩</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index2.html">祭祀</a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+    <!-- nvbar -->
+
+    <!-- video -->
+    <div class="video-container">
+      <video class="video-bg " poster="img/topic/loading.png" autoplay loop muted>
+        <source src="img/topic/techno_vs_dream.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="content">
+        <h1>The Legend Of Blood God :
+        </h1>
+        <h1> A simple Minecraft guide for everyone. 
+        </h1>
+        <p>年紀輕輕就沒有了一把年紀。</p>
+      </div>
+    </div>
+    <!-- video -->
+
+    <!-- self -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="img-container">
+          <img src="img/topic/1_Technoblade_icon.jpeg" alt="Your Image">
+        </div>
+      </div>
+      <div class="col-md-8 ">
+        <div class="row">
+          <div class="col-12 text-container">
+            In memory of Technoblade.
+          </div>
+          <div class="col-12 text-content">
+            Technoblade，又假名David或者Alex，一位Minecraft史上真正的傳奇創作者。
+          </div>
+          <div class="col-12 text-content">
+            他有著常人難以並肩的pvp技巧，曾創下Hypixels伺服器中bed wars多達1818次連勝紀錄。
+          </div>
+          <div class="col-12 text-content">
+            同時，他身為創作者也有著獨樹一幟的幽默。
+          </div>
+          <div class="col-12 text-content">
+            其特殊的魅力是我們共同的回憶，也啟發了我們對Minecraft這款遊戲的嚮往。
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- self -->
+
+    <!-- self2 -->
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-12 text-container2">
+            "Technoblade never dies."
+          </div>
+          <div class="col-12 text-content2 ">
+            我們都為這名傳奇的故事駐足，希望傳唱他的故事
+          </div>
+          <div class="col-12 text-content2 ">
+            以及他所熱愛的遊戲——Minecraft。
+          </div>
+          <div class="col-12 text-content2 ">
+            於2022年6月30日，Technoblade因骨癌離開了這個世界。
+          </div>
+          <div class="col-12 text-content2  ">
+            我們相信他已經前往了上帝的維度，親自挑戰祂本人。
+
+          </div>
+          <div class="col-12 text-content2 ">
+            距離他到另一個維度的日子已近兩年，我們希望將他喜愛的遊戲做成精簡的介紹網站
+          </div>
+          <div class="col-12 text-content2 ">
+            令新手也能快速了解Minecraft的簡單玩法與世界。 
+          </div>
+          <div class="col-12 text-content2 ">
+            以此紀念。
+          </div>
+          
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="img-container">
+          <img src="img/topic/2_technoicon.PNG" alt="Your Image" class="self2">
+        </div>
+      </div>
+
+    </div>
+    <!-- self2 -->
+
+<!-- six_dinosour -->
+    <div class="main-image" id="mainImage">
+      <img src="img/topic/3_mid.png" alt="Main Image">
+      <div class="hover-images" id="hoverImages">
+        <div class="hover-image">
+          <img src="img/topic/six_dinosour/ability_1.png" alt="Hover Image 2" id="Image2">
+          <p>”Technoblade Never Dies.” </p>
+        </div>
+        <div class="hover-image">
+          <img src="img/topic/six_dinosour/ability_2.png" alt="Hover Image 3" id="Image3">
+          <p>Blood For The Blood God. </p>
+        </div>
+        <div class="hover-image">
+          <img src="img/topic/six_dinosour/ability_6.png" alt="Hover Image 4" id="Image4">
+          <p>I have a Pickaxe & I'll put it through your teeth</p>
+        </div>
+        <div class="hover-image">
+          <img src="img/topic/six_dinosour/ability_4.png" alt="Hover Image 5" id="Image5">
+          <p>”Welcome home,Theseus.”          </p>
+        </div>
+        <div class="hover-image">
+          <img src="img/topic/six_dinosour/ability_5.png" alt="Hover Image 6" id="Image6">
+          <p>¿Ay caramba dónde está la Biblioteca?          </p>
+        </div>
+        <div class="hover-image">
+          <img src="img/topic/six_dinosour/ability_3.png" alt="Hover Image 7" id="Image7">
+          <p>Subscribe to Technoblade. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- six_dinosour -->
+ 
+
+
+ 
+    
+    <!-- 回到最上面 -->
+    <a href="#abc">
+        <img src="img/top_small.png" class="btn pinkbtn">
+    </a>
+
+
+
+    <!-- 腳 -->
+    <footer>
+      <!-- 加入圖片 -->
+      <img src="img/background/topic_03.png" alt="Footer Image" class="footer-img">
+      
+    </footer>
+<!-- 腳 -->
+
+
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('mainImage').addEventListener('click', function () {
+      var hoverImages = document.getElementById('hoverImages');
+      hoverImages.classList.toggle('show');
+    });
+
+  </script>
+
+
+
+</body>
+
+</html>
